@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/", require("./routes"));
-app.use("/todos", require("./routes/todos"));
-app.use("/users", require("./routes/users"));
+app.use("/todo", require("./routes/todos"));
+app.use("/user", require("./routes/users"));
 
 if (db) {
   app.listen(PORT, () => {
