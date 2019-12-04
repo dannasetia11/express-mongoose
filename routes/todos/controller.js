@@ -10,6 +10,18 @@ module.exports = {
       console.log(error);
     }
   },
+  getByEmail: (req, res) => {
+    get()
+      .collection("todos")
+      .find({ email: req.params.email })
+      .toArray()
+      .then(result => {
+        res.send({ message: "Get all datas by email", data: result });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
   getOne: async (req, res) => {
     try {
       const result = await Todos.find({ _id: objectId(req.params.id) });

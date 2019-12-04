@@ -48,5 +48,20 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
+  },
+  getlogin: (req, res) => {
+    get()
+      .collection("users")
+      .findOne({ email: req.body.email, password: req.body.password })
+      .then(response => {
+        const { email, firstName } = response;
+        res.status(200).send({
+          massage: "Login Successfully",
+          data: { email, firstName }
+        });
+      })
+      .catch(error => {
+        Console.log(error);
+      });
   }
 };
